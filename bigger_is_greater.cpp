@@ -29,7 +29,7 @@ string biggerIsGreater(string &a)
             // cout<<a<<endl;
         }
         swap(a[index-1], a[prev]);
-        sort(a.begin() + index, a.end());
+        reverse(a.begin() + index, a.end());
         return a;
     }
 
