@@ -5,6 +5,6 @@ def stringConstruction(s):
         if i not in p:
             c+=1
             p=p+i
-            p.s
+            
     return c
 print(stringConstruction("aeae"))

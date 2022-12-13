@@ -2,20 +2,20 @@
 using namespace std;
 class Solution {
 public:
-    vector<int> factorial(int N){
+    vector<char> factorial(int N){
         // code here
-         vector<int>res={1};
+         vector<char>res={'1'};
          for(int i=2;i<=N;i++){
             long long  carry=0;
             int len=res.size()-1;
             while(len>=0){
-                long long temp=i*res[len]+carry;
-                res[len]=(temp)%10;
+                long long temp=i*(res[len]-'0')+carry;
+                res[len]=(char)((temp)%10+48);
                 carry=temp/10;
                 len--;
             }
             while(carry>0){
-                res.insert(res.begin()+0,carry%10);
+                res.insert(res.begin()+0,(char)(carry%10+48));
                 carry/=10;
             }
             
@@ -30,7 +30,7 @@ int main() {
         int N;
         cin >> N;
         Solution ob;
-        vector<int> result = ob.factorial(N);
+        vector<char> result = ob.factorial(N);
         for (int i = 0; i < result.size(); ++i){
             cout<< result[i];
         }

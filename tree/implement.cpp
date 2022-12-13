@@ -1,6 +1,16 @@
 #include <bits/stdc++.h>
 #include "binarytree.h"
 using namespace std;
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
 class node
 {
 public:
@@ -50,8 +60,8 @@ void preordertraverse(node *root)
     if (root != NULL)
     {
         cout << root->data << " ";
-        inordertraverse(root->left);
-        inordertraverse(root->right);
+        preordertraverse(root->left);
+        preordertraverse(root->right);
     }
 }
 void postordertraverse(node *root)
@@ -155,6 +165,38 @@ void leftview(node *root)
             cout << i->data << endl;
     }
 }
+vector <int> zigZagTraversal(Node* root)
+    {
+    	// Code here
+    // 	level order traversal
+    	map<int,vector<int>>res;
+    	queue<pair<int,Node*>>q;
+    	q.push({0,root});
+    	while(!q.empty()){
+    	    auto curr=q.front();
+    	    q.pop();
+    	    res[curr.first].push_back(curr.second->data);
+    	    if(curr.second->left!=NULL)q.push({curr.first+1,curr.second->left});
+    	    if(curr.second->right!=NULL)q.push({curr.first+1,curr.second->right});
+    	}
+    // 	create ans vector and store values from left to right if it is even level; else sytore from right to left 
+    // below is the logic which is used
+    	vector<int>ans;
+    	for(auto i:res){
+    	    if(i.first&1){
+    	        for(int j=i.second.size()-1;j>=0;j--)ans.push_back(i.second[j]);
+    	    }
+    	    else{
+    	        for(int j:i.second){
+    	            ans.push_back(j);
+    	        }
+    	    }
+    	}
+    	return ans;
+    }
+
+
+    
 void rightviewutil(node *root, vector<node *> &res, int level)
 {
     if (root == NULL)
@@ -223,6 +265,8 @@ void bottomView(node *root)
     for (auto i : res)
         cout << i.second << " ";
 }
+
+// tree2DLL
 node *prev1 = NULL;
 node *head1 = NULL;
 void tree2DLL(node *root)
@@ -291,5 +335,7 @@ int main()
 
     // topView(root);
     // bottomView(root);
-    levelOrderTraverse(root);
+    preordertraverse(root);
+    cout<<endl;
+    inordertraverse(root);
 }

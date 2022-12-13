@@ -29,7 +29,7 @@ void powerset(vector<string> &res,string s,int i=0,string curr=""){
 
 }
 int main(){
-    string s="abc";
+    string s="aba";
     vector<string> res;
     powerset(res,s);
     // sort(res.begin(),res.end());

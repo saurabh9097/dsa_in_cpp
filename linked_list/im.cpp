@@ -3,11 +3,10 @@
 // #include<opencv2/opencv.hpp>
 using namespace std;
 int main(){
-    ifstream inp;
-    string line;
-    inp.open("t.jpg",ios::binary);
-    while ( getline (inp,line) )
+    for (int i = 0; i < 5; i++)
     {
-      cout << line << endl;
+      cout << i <<endl;
     }
+    set<int>st;
+    
 }

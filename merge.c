@@ -22,13 +22,13 @@ void merge(int arr[], int l, int m, int r)
     {
         if (L[pleft] <= R[pright])
         {
-            arr[cc] = L[pleft];
-            pleft++;
+            arr[cc] = L[pleft++];
+            
         }
         else
         {
-            arr[cc] = R[pright];
-            pright++;
+            arr[cc] = R[pright++];
+            
         }
         cc++;
     }
