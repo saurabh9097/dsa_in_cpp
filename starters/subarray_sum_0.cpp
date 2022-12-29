@@ -18,6 +18,9 @@ class Solution{
         int cur=0;
         for(int i=0;i<n;i++){
             cur+=arr[i];
+			
+            if (cur==0||a.find(cur)!=a.end())
+            return true;
 			a.insert(cur);
         }
         return false;
