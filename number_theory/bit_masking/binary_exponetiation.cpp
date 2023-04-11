@@ -65,5 +65,6 @@ int main()
     cin >> t;
     while (t--)
     {
+        cout<<binMultipy(3,10);
     }
 }
